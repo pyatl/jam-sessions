@@ -1,6 +1,6 @@
 import pickle
 
-f = open('5.p')
+f = open('banner.p')
 p = pickle.load(f)
 
 for arr in p:
