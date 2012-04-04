@@ -36,12 +36,14 @@ technique:
 Step 1 - Create a test module (fixture)
 ---------------------------------------
 Create a new Python module for your test case, and import unittest
+
     import unittest
      
 
 Step 2 - Create your test case
 ------------------------------
 Create a new class that inherits from the TestCase class in the unittest module.
+
     import unittest
 
     class WebTest(unittest.TestCase):
@@ -52,6 +54,7 @@ Add a test method.  You want to try to focus a test method on a particular
 behavior.  For this example we're going to cover the "happy case" or normal usage
 of our "URL-ifying" class.  Note that test method names should start with the
 word "test."
+
     import unittest
 
     class WebTest(unittest.TestCase):
@@ -63,6 +66,7 @@ word "test."
             result = maker.make(domain)
 
             self.assertEquals(result, expected_url)
+
 Note that we have a variable for the domain we want to input, the url-like
 string we expect to get, and the actual result that comes from out of our
 implementation.  This is the core of unit testing.  Each test should have some
@@ -79,11 +83,15 @@ first, and there isn't any implementation yet, we *expect* the test to fail.
 If we started with a passing test, we couldn't be sure if it was working properly,
 or if the test was passing and giving us a false sense of confidence.
 You can run the test from the command line, using the -m switch on python, like so:
+    
     python -m unittest test
+
 or you can simply add the following to the bottom of your test module and run it
 like you would run any other script:
+
     if __name__ == 'main':
         unittest.main()
+
 When the test fails, you should get an error that says something about
 "global name UrlMaker not defined."  This is somewhat obvious, since if we
 haven't written the UrlMaker class yet, of course it won't be defined.
@@ -92,12 +100,16 @@ Step 5 - Begin implementation
 -----------------------------
 Begin implementation of your UrlMaker class.  We'll simply put it into a new
 module called urlmaker.py and declare our new class.
+
     class UrlMaker(object):
         pass
+
 Next we want to make this new class visible to our test class, we'll need to
 import it.  The top of your test module should now look like this:
+
     import unittest
     from urlmaker import UrlMaker
+
 We'll start with an empty class to keep things simple, and here's where another
 part of the TDD technique comes in.  Once you've written a basic test or two,
 start your implementation, but do it fairly incrementally, and run the tests
@@ -113,9 +125,11 @@ Now we finish writing our implementation for the purpose of passing the test.
 If desired, you can add an empty method, rerun the test, begin adding lines of
 code to the method, rerun the test, and so on, until it passes.  To skip ahead
 a bit, here's an implmentation that will hopefully pass.
+
     class UrlMaker(object):
         def make(self, domain):
             return 'www.{0}.com'.format(domain)
+
 Of course this is a simple implementation and probably prone to a good number
 of errors if we were to use it in a production environment, but one point of
 TDD is to help us ensure we don't end up writing too much code, so a simple
