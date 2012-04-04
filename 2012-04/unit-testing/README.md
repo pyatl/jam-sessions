@@ -37,6 +37,7 @@ Step 1 - Create a test module (fixture)
 ---------------------------------------
 Create a new Python module for your test case, and import unittest
     import unittest
+     
 
 Step 2 - Create your test case
 ------------------------------
