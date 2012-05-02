@@ -36,7 +36,14 @@ This was a brainstormed list of ideas for projects the group might like to try.
 If you would like to contribute an idea please contact a group organizer, and
 we'll try to add it and sort it into the proper difficulty category.
 https://docs.google.com/spreadsheet/ccc?key=0Ak8pFoKB6kK-dFdlejg1RloxaUxsSVNXZTFrWmdJdHc
+- Python Challenge website
+Our warmup exercises come from the Python Challenge website.  This site is a 
+series of puzzles which encourage you to use various standard library modules 
+to solve the problem and find a password to use in the URL to get to the next
+level.
+http://www.pythonchallenge.com/
 - PyATL Meetup Page
 You can RSVP for meetups or see when the next meetup is here.
 http://www.meetup.com/python-atlanta/
+
 
