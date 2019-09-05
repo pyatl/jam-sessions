@@ -7,7 +7,7 @@ around with he code here.
 """
 import pytest
 
-from .barcode import decode_digit, decode_barcode
+from barcode import decode_digit, decode_barcode
 
 
 class TestDecodeDigit:
