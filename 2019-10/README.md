@@ -1,6 +1,6 @@
-# LSB Steganography
+# Hiding Messages in Plain Sight with Steganography
 
-PyATL Jam Session — Oct. 3rd, 2019
+PyATL Jam Session — October 3rd, 2019
 
 From an original idea by [@Burnsedia](https://github.com/Burnsedia)
 
@@ -8,9 +8,10 @@ From an original idea by [@Burnsedia](https://github.com/Burnsedia)
 
 - [Instructions](#instructions)
 - [Introduction](#introduction)
-- [Part 1: LSB Manipulation](#part-1-lsb-manipulation)
+- [Part 1: Bit Manipulation](#part-1-bit-manipulation)
 - [Part 2: Reading a Message](#part-2-reading-a-message)
 - [Part 3: Writing messages](#part-3-writing-messages)
+- [Conclusion](#conclusion)
 - [Extra Challenges](#extra-challenges)
 
 ## Instructions
@@ -49,11 +50,11 @@ If you feel stuck, you can add `print()` calls in your code to see what's going 
 
 [Steganography] is the process of hiding one message inside another. You've probably done something like that when you were younger, for example by having the first letter of every sentence in a text form a sentence of its own.
 
-In today's challenge, we will play around with one of the many modern steganography methods: Least Significant Bit (LSB) encoding. This technique allows one to hide a message (or an image) in another document where very tiny changes won't be noticeable, such as a picture or music.
+In today's challenge, we will play around with one of the many modern steganography techniques. It allows one to hide a message (or an image) in another document where very tiny changes won't be noticeable, such as a picture or music.
 
-For the sake of keeping the exercise simple, we sadly won't be manipulating images but just simple text. But armed with your knowledge and code, you can explore doing that if your curiosity calls for it!
+For the sake of keeping the exercise simple, we will be manipulating text instead of images. We encourage you to explore how to apply this knowledge to other media if that tickles your curiosity!
 
-## Part 1: LSB Manipulation
+## Part 1: Bit Manipulation
 
 First, let's study some fundamental principles. In most digital applications, the unit of data is called a [Byte], which holds 8 bits of data. Consequently, a byte has 2⁸ = 256 possible states, usually represented as a number between 0 and 255. For example:
 
@@ -125,7 +126,7 @@ Now that we know how to manipulate bits and bytes, let's put that knowledge to u
 2. Group those bits by clusters of eight. Remaining bits (fewer than 8 at the end) are discarded.
 3. Convert each cluster of 8 to a byte, and output those values.
 
-**Exercise 5:** Write code that does just that!
+**Exercise 5:** Write code to read messages from the LSBs of another!
 
 Example: This sequence of 8 bytes contains the number 88
 
@@ -208,6 +209,14 @@ The interesting challenge here is that there is no guarantee that the carrier wi
 1. What if the carrier is too short? Do you truncate the message or throw an error?
 2. What if it is too long? Do you pad the message with spaces? Or do you terminate the message with a null `\x00` byte and leave the carrier unaltered?
 
+## Conclusion
+
+In case you're curious, what we did today is called LSB Steganography. That's because it alters the LSB of each byte of the carrier date to encode hidden messages.
+
+As you can see, using plain text as a carrier is a terrible idea! And there is no good way around it; all vowels and the whitespace have the same parity in ASCII. This makes it very impractical to create plausible English text that hides a message in its LSBs.
+
+In practice, this technique is best used on images or sound where the least-significant bits are, as their name suggests, least significant. For example, changing a pixel value by just 1 results in a color difference that's generally imperceptible to the human eye. On the downside, this kind of steganography generally does not survive compression, such as JPEG.
+
 ## Extra challenges
 
 These are some additional challenges for you to take on freely.
@@ -216,9 +225,9 @@ These are some additional challenges for you to take on freely.
 
 * In the same line of thinking, can you make your code work on other forms of binary data, such as `io.BytesIO`?
 
-* As you can see, doing LSB Steganography on text is a terrible idea because it massively alters the original data (and there is no good way around it; all vowels have the same parity in ASCII!). Doing Steganography on images or music is much more interesting because LSB changes are so small that they usually cannot be detected by humans. Can you apply your code to an image or sound? You will need to work locally for that, as cyber-dojo.org does not provide support for third-party libraries or other types of media.
+* Can you apply your code to an image or sound? You will need to work locally for that, as cyber-dojo.org does not provide support for third-party libraries or other types of media. Feel free to use the image manipulation library of your choice: OpenCV, Pillow, numpy…
 
-* Plain binary text is pretty easy to detect. Can you modify your steganography to automatically apply some scrambling or encryption?
+* Can you modify your steganography to automatically apply some scrambling or encryption?
 
 [Bitwise Operators]: https://wiki.python.org/moin/BitwiseOperators
 [Byte]: https://en.wikipedia.org/wiki/Byte
