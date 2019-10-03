@@ -16,6 +16,7 @@ From an original idea by [@Burnsedia](https://github.com/Burnsedia)
 
 ## Instructions
 
+#### How to join
 
 First, join the online Cyber-Dojo session:
 
@@ -24,27 +25,44 @@ First, join the online Cyber-Dojo session:
 3. Enter the ID that will be shared with the group at the time of the meeting, or on the Meetup page directly.
 4. An animal will be assigned to you, then you will be able to start coding on the next page.
 
-On the Cyber-dojo interface, you will see:
+#### Interface overview
+
+On the Cyber-Dojo interface, you will see:
 
 * The editor (middle / bottom-right), which occupies most of the page and is where you will be coding.
-* The list of files (on the left):
-  * `my_code.py` is where you should write your code, and contains a very bare stub of functions at the start.
-  * `test_my_code.py` contains the tests that will be run on your code.
+* The list of files on the left, click on a file to access it:
+  * `my_code.py` is where you should write your code.
+  * `test_my_code.py` is where you should write tests for your code.
 * Your test run history (top bar of the page), which will be empty to start with. Tests are color-coded as:
   * green: all tests passed
   * red: at least one test failed
   * yellow: there was an unexpected error while running the tests
 
-To try your code, click the "Test" button at the top-left. This will run the tests in `test_my_code.py` on the code in `my_code.py`.
+**To try your code, click the "Test" button in the top-left.** This will run `test_my_code.py`, which should in turn run the code in `my_code.py`.
 
-To add a test, just add a new function in `test_my_code.py`. The only rule is that the function name must start with `test_`. In the function itself, write your tests using `assert` with anything that evaluates to `True` or `False` behind. For example:
+#### What's with the tests thing?
+
+The Cyber-Dojo coding website is designed according to the [Test-Driven Development] practice. In other words: write the tests first, build the code after! We encourage you to do the same, but the choice is yours.
+
+To add a test, add an `assert` statement in `test_my_code.py`, such as follows:
 
 ```python
-def test_something():
-    assert 1 == 1
+assert my_function_to_test(test_input) == expected_result
+
+# Examples:
+assert add_numbers(1, 2) == 3
+assert is_even(1024)
 ```
 
-If you feel stuck, you can add `print()` calls in your code to see what's going on. Don't hesitate to ask for help!
+The `assert` statement works by checking if what follows on the line is (or evaluates to) `True`, and throws an error if it is not.
+
+[Test-Driven Development]: https://en.wikipedia.org/wiki/Test-driven_development
+
+#### Tips
+
+* If you feel stuck, you can add `print()` calls in your code to see what's going on.
+* You can read other people's code! Click on the animal image in the top-left to access the session dashboard, and click on the other animals to access their code.
+* Don't hesitate to ask for help!
 
 ## Introduction
 
