@@ -38,7 +38,7 @@ On the Cyber-Dojo interface, you will see:
   * red: at least one test failed
   * yellow: there was an unexpected error while running the tests
 
-**To try your code, click the "Test" button in the top-left.** This will run `test_my_code.py`, which should in turn run the code in `my_code.py`.
+**To try your code, click the "Test" button in the top-left.** This will run `test_my_code.py`, which should, in turn, run the code in `my_code.py`.
 
 #### What's with the tests thing?
 
@@ -121,16 +121,16 @@ Examples:
 
 #### Tips
 
-* Write each exercise as its own function with a meaningful name, you will need those later.
+* Write each exercise inside an individual function with a meaningful name, you will need those later.
 
 * You can do exercises 3 and 4 first and use their code to solve 1 and 2, but always splitting a number into all its bits is not the most efficient way of manipulating the LSB only.
 
-* Have you noticed that the LSB of a number basically dictates whether a number is odd or even? You may want to try playing with the Modulo (`%`) and Integral Division (`//`) operations in Python! 
+* Have you noticed that the LSB of a number dictates whether a number is odd or even? You may want to try playing with the Modulo (`%`) and Integral Division (`//`) operations in Python! 
 
 * Alternatively, Python has some [Bitwise Operators] you can try to use.
 
 * You can also use the `bin` builtin to display the binary value of any number:
-    ```
+    ```python
     >>> bin(71)
     '0b1000111'
     ```
@@ -158,13 +158,13 @@ Example: This sequence of 8 bytes contains the number 88
 
 Numbers are fun, but they're not much use to us… yet. To get text, there are two steps to apply.
 
-1. Convert your stream of numbers into a byte-string. This is pretty straightforward:
-   ```
+1. Convert your stream of numbers into a byte-string:
+   ```python
    >>> bytes([80, 121, 116, 104, 111, 110])
    b'Python'
    ```
 2. Convert the byte-string into a string using the `bytes.decode()` method. This step is important if the message originally contained funky characters:
-   ```
+   ```python
    >>> b'Python'.decode()
    'Python'
    >>> b'4 \xc3\x97 5 \xc3\xb7 2 = 10'.decode()
@@ -175,10 +175,12 @@ Numbers are fun, but they're not much use to us… yet. To get text, there are t
 
 Conversely, a byte-string can be iterated over and will yield integers:
 
-    >>> list('Python')
-    ['P', 'y', 't', 'h', 'o', 'n']
-    >>> list(b'Python')
-    [80, 121, 116, 104, 111, 110]
+```python
+>>> list('Python')
+['P', 'y', 't', 'h', 'o', 'n']
+>>> list(b'Python')
+[80, 121, 116, 104, 111, 110]
+```
 
 This means that we can take a byte-string in and extract a message from it.
 
@@ -207,8 +209,10 @@ Know the difference between `str` and `bytes`! They look very similar and have a
   
 Converting from `str` to `bytes` required _encoding_. The most flexible and popular is UTF-8, which is the default in Python:
 
-    >>> '4 × 5 ÷ 2 = 10'.encode()
-    b'4 \xc3\x97 5 \xc3\xb7 2 = 10'
+```python
+>>> '4 × 5 ÷ 2 = 10'.encode()
+b'4 \xc3\x97 5 \xc3\xb7 2 = 10'
+```
 
 The reverse operation is called _decoding_, which we've already seen in action. Be aware that decoding can easily fail if the binary data is invalid.
 
@@ -231,7 +235,7 @@ The interesting challenge here is that there is no guarantee that the carrier wi
 
 In case you're curious, what we did today is called LSB Steganography. That's because it alters the LSB of each byte of the carrier date to encode hidden messages.
 
-As you can see, using plain text as a carrier is a terrible idea! And there is no good way around it; all vowels and the whitespace have the same parity in ASCII. This makes it very impractical to create plausible English text that hides a message in its LSBs.
+As you can see, using plain text as a carrier is a terrible idea! And there is no good way around it; all vowels and the whitespace have the same parity in ASCII. This makes it very impractical to write plausible English that hides a message in its LSBs.
 
 In practice, this technique is best used on images or sound where the least-significant bits are, as their name suggests, least significant. For example, changing a pixel value by just 1 results in a color difference that's generally imperceptible to the human eye. On the downside, this kind of steganography generally does not survive compression, such as JPEG.
 
