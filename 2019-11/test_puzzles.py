@@ -6,7 +6,7 @@ on the left to navigate there:
 
 - puzzle_1.py: Novice-level puzzle
 - puzzle_2.py: Easy puzzle
-- puzzle_3.py: Medium puzzle
+- puzzle_3.py: Intermediate puzzle
 - puzzle_4.py: Challenging puzzle
 """
 
