@@ -32,4 +32,10 @@ How many total **feet of ribbon** should they order?
 
 ### Tips
 
-TODO
+* The input will be passed to you as a list of strings, with the dimensions of one box per line.
+
+* Start by writing code that can extract the length, width and height as integers from the string representing the dimension. One possibility is to use the `split()` method of the string objects, then use the `int` built-in.
+
+* Processing a single line can be written as its own function. The solution is then the sum of this function applied to every line of input.
+
+* I strongly recommend writing unit tests in `test_puzzles.py`!

@@ -4,7 +4,7 @@ From Advent of Code 2015, Day 7: <https://adventofcode.com/2015/day/7>
 
 Write your code in `puzzle_4.py`. The functions `part_1` and `part_2` will automatically be provided with the puzzle input from `puzzle_4.txt`, as a list of strings (one line per item).
 
-#### Part 1
+### Part 1
 
 This year, Santa brought little Bobby Tables a set of wires and bitwise logic gates! Unfortunately, little Bobby is a little under the recommended age range, and he needs help assembling the circuit.
 
@@ -45,6 +45,14 @@ After it is run, these are the signals on the wires:
 
 In little Bobby's kit's instructions booklet (provided as your puzzle input), what signal is ultimately provided to wire `a`?
 
-#### Part 2
+### Part 2
 
 Now, take the signal you got on wire `a`, override wire `b` to that signal, and reset the other wires (including wire `a`). What new signal is ultimately provided to wire `a`?
+
+### Tips
+
+* Despite the appearances, this is **not** an assembly-like language to execute. Each wire will only have one line defining what it is connected to. So when you're asked to find the value of wire `a`, you need to look up where it's defined and work your way down the definitions from there.
+
+* Don't forget that values are 16-bit unsigned. You cannot store indefinitely large numbers.
+
+* I'd be very interested in seeing a non-recursive solution to this.

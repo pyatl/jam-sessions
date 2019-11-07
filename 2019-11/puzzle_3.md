@@ -44,4 +44,8 @@ How many strings are nice under these new rules?
 
 ### Tips
 
-TODO
+* The input will be passed to you as a list of strings.
+
+* Write a function that can verify is a single string is nice, returning `True` or `False`.
+
+* You can sum booleans! `sum([True, False, True])` works and returns 2.
